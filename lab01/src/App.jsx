@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import RootLayout from './layouts/RootLayout';
 import Lab1 from './components/Lab1';
-import Lab2 from './components/Lab2';
+import Lab2 from './components/lab2';
 import Home from './components/Home';
 import './App.css';
 
@@ -22,8 +22,8 @@ const App = () => {
       },
       { id: 3, 
           label: "Labolatorium2",
-          path: "/lab2",
-          urlPattern: "/lab2",
+          path: "/lab2/:id",
+          urlPattern: "/lab2:id",
           element: <Lab2></Lab2>,
       }
   ];
@@ -33,11 +33,14 @@ const App = () => {
     <>
       <RootLayout items={menuItems}>
         <Routes>
-          <Route path="/lab1" element={<Lab1 />} />
-          <Route path="/lab2" element={<Lab2 />} />
-          <Route path="/" element={<Home />} />
+          {menuItems.map(item => (
+            <Route
+              key={item.id}
+              path={item.path} 
+              element={item.element} 
+             />
+          ))}
         </Routes>
-          <p>content</p>
       </RootLayout>
     </>
   );
