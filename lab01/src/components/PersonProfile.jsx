@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 
 
-const PersonProfile = ({ id, name, surname, height }) => {
+const PersonProfile = ({ id, name, surname, height, rating}) => {
   return (
     <div className="card mb-3" style={{ width: '18rem' }}>
       <div className="card-body">
@@ -10,6 +10,7 @@ const PersonProfile = ({ id, name, surname, height }) => {
         <h5 className="card-title">Name: {name}</h5>
         <p className="card-text">Surname: {surname}</p>
         <p className="card-text">Height: {height}</p>
+        <p className="card-text">Rating: {rating}</p>
       </div>
     </div>
   );

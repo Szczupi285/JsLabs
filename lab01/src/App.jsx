@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import RootLayout from './layouts/RootLayout';
 import Lab1 from './components/Lab1';
 import Lab2 from './components/lab2';
+import Lab3 from './components/Lab3';
 import Home from './components/Home';
 import './App.css';
 
@@ -25,7 +26,13 @@ const App = () => {
           path: "/lab2/:id",
           urlPattern: "/lab2:id",
           element: <Lab2></Lab2>,
-      }
+      },
+      { id: 4, 
+        label: "Labolatorium3",
+        path: "/lab3",
+        urlPattern: "/lab3",
+        element: <Lab3></Lab3>,
+    }
   ];
   
 

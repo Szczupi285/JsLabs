@@ -21,6 +21,7 @@ async function generateData() {
                 name: names[Math.floor(Math.random() * names.length)],
                 surname: surnames[Math.floor(Math.random() * surnames.length)],
                 height: heights[Math.floor(Math.random() * heights.length)],
+                rating: Math.floor(Math.random() * 10) + 1,
             });
         }
 
