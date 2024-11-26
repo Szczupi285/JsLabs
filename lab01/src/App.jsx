@@ -48,8 +48,9 @@ const App = () => {
         <RootLayout items={menuItems}>
             <Routes>
                 {menuItems.map(item => (
-                    <Route key={item.id} path={item.path} element={item.element} />
+                    <Route key={item.id} path={item.path} element={item.element} /> 
                 ))}
+                  <Route path="/lab4/*" element={<Lab4 />} /> {} 
             </Routes>
         </RootLayout>
     </AppProvider>

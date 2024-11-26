@@ -23,6 +23,11 @@ const AppReducer = (state, action) => {
                 ...state,
                 items: state.items.filter(item => item.id !== action.payload.id),
             };
+            case 'add':
+                return {
+                    ...state,
+                    items: [...state.items, { ...action.payload, id: Date.now() }] 
+                };
         default:
             return state;
     }

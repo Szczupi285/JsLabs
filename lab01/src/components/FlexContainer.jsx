@@ -37,7 +37,6 @@ function FlexContainer() {
                             <p>Height: {item.height} cm</p>
                             <RatingBar rate={item.rating || 0} />
                             <button onClick={() => handleRate(item.id)}>Rate</button>
-                            <button onClick={() => handleUpdate(item.id)}>Update</button>
                             <button onClick={() => dispatch({ type: 'delete', payload: { id: item.id } })}>
                                 Delete
                             </button>
