@@ -10,10 +10,10 @@ function Lab4() {
       <nav>
         <ul>
           <li>
-            <Link to="/lab4/add">Add Object</Link>
+            <Link className="btn btn-primary" to="/lab4/add">add</Link>
           </li>
           <li>
-            <Link to="/lab4/edit/1">Edit Object (Example ID: 1)</Link>
+            <Link className="btn btn-primary"  to="/lab4/edit/1">edit(Example ID: 1)</Link>
           </li>
         </ul>
       </nav>

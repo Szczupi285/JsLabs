@@ -36,8 +36,8 @@ function FlexContainer() {
                             <h3>{item.name} {item.surname}</h3>
                             <p>Height: {item.height} cm</p>
                             <RatingBar rate={item.rating || 0} />
-                            <button onClick={() => handleRate(item.id)}>Rate</button>
-                            <button onClick={() => dispatch({ type: 'delete', payload: { id: item.id } })}>
+                            <button className='btn btn-primary' onClick={() => handleRate(item.id)}>Rate</button>
+                            <button className='btn btn-primary' onClick={() => dispatch({ type: 'delete', payload: { id: item.id } })}>
                                 Delete
                             </button>
                         </div>

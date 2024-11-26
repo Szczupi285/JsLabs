@@ -40,3 +40,19 @@
 .read-the-docs {
   color: #888;
 }
+
+.input-style {
+  background-color: white;  
+  color: black;            
+  padding: 8px 12px;        
+  border: 1px solid #ccc;   
+  border-radius: 4px;    
+  font-size: 16px;         
+  width: 100%;
+  margin: 5px 0;
+}
+
+.input-style:focus {
+  outline: none;  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}

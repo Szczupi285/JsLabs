@@ -1,14 +1,17 @@
 const AppReducer = (state, action) => {
     switch (action.type) {
-        case 'rate':
+        case 'rate': {
             return {
                 ...state,
-                items: state.items.map(item =>
-                    item.id === action.payload.id
-                        ? { ...item, rating: (item.rating || 0) + 1 }
-                        : item
-                ),
+                items: state.items.map(item => {
+                    if (item.id === action.payload.id) {
+                        const newRating = item.rating === 10 ? 0 : item.rating + 1;
+                        return { ...item, rating: newRating };
+                    }
+                    return item;
+                }),
             };
+        }
         case 'update':
             return {
                 ...state,
