@@ -3,7 +3,9 @@ import RootLayout from './layouts/RootLayout';
 import Lab1 from './components/Lab1';
 import Lab2 from './components/lab2';
 import Lab3 from './components/Lab3';
+import Lab4 from './components/Lab4';
 import Home from './components/Home';
+import { AppProvider } from './data/AppContext';
 import './App.css';
 
 const App = () => {
@@ -32,24 +34,25 @@ const App = () => {
         path: "/lab3",
         urlPattern: "/lab3",
         element: <Lab3></Lab3>,
-    }
+      },
+      { id: 5, 
+        label: "Labolatorium4",
+        path: "/lab4",
+        urlPattern: "/lab4",
+        element: <Lab4></Lab4>,
+      }
   ];
-  
 
   return (
-    <>
-      <RootLayout items={menuItems}>
-        <Routes>
-          {menuItems.map(item => (
-            <Route
-              key={item.id}
-              path={item.path} 
-              element={item.element} 
-             />
-          ))}
-        </Routes>
-      </RootLayout>
-    </>
+    <AppProvider>
+        <RootLayout items={menuItems}>
+            <Routes>
+                {menuItems.map(item => (
+                    <Route key={item.id} path={item.path} element={item.element} />
+                ))}
+            </Routes>
+        </RootLayout>
+    </AppProvider>
   );
 };
 

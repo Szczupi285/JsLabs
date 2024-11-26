@@ -1,11 +1,10 @@
-
-import { useReducer } from 'react';
-import AppReducer from '../data/AppReducer';
+import React, { useContext } from 'react';
+import AppContext from '../data/AppContext';
 import RatingBar from './RatingBar';
 import { Row, Col } from 'react-bootstrap';
 
-function FlexContainer({ data }) {
-    const [items, dispatch] = useReducer(AppReducer, data);
+function FlexContainer() {
+    const { items, dispatch } = useContext(AppContext);
 
     const handleRate = (id) => {
         dispatch({ type: 'rate', payload: { id } });
@@ -30,22 +29,22 @@ function FlexContainer({ data }) {
 
     return (
         <div className="flex-container">
-                <Row className="d-flex flex-wrap">
-            {items.map((item) => (
-                <Col key={item.id} md={5} className="mb-3"> {}
-                <div key={item.id} className="flex-item">
-                    <h3>{item.name} {item.surname}</h3>
-                    <p>Height: {item.height} cm</p>
-                    <RatingBar rate={item.rating || 0} />
-                    <button onClick={() => handleRate(item.id)}>Rate</button>
-                    <button onClick={() => handleUpdate(item.id)}>Update</button>
-                    <button onClick={() => dispatch({ type: 'delete', payload: { id: item.id } })}>
-                        Delete
-                    </button>
-                </div>
-                </Col>
-            ))}
-             </Row>
+            <Row className="d-flex flex-wrap">
+                {items.map((item) => (
+                    <Col key={item.id} md={5} className="mb-3">
+                        <div className="flex-item">
+                            <h3>{item.name} {item.surname}</h3>
+                            <p>Height: {item.height} cm</p>
+                            <RatingBar rate={item.rating || 0} />
+                            <button onClick={() => handleRate(item.id)}>Rate</button>
+                            <button onClick={() => handleUpdate(item.id)}>Update</button>
+                            <button onClick={() => dispatch({ type: 'delete', payload: { id: item.id } })}>
+                                Delete
+                            </button>
+                        </div>
+                    </Col>
+                ))}
+            </Row>
         </div>
     );
 }

@@ -1,27 +1,31 @@
-// data/AppReducer.js
-
-export default function AppReducer(state, action) {
+const AppReducer = (state, action) => {
     switch (action.type) {
-        case 'delete': {
-            return state.filter(item => item.id !== action.payload.id);
-        }
-        case 'rate': {
-            return state.map(item => {
-                if (item.id === action.payload.id) {
-                    const newRating = item.rating === 11 ? 0 : item.rating++;
-                    return { ...item, rating: newRating };
-                }
-                return item;
-            });
-        }
-        case 'update': {
-            return state.map(item =>
-                item.id === action.payload.id
-                    ? { ...item, ...action.payload.data }
-                    : item
-            );
-        }
+        case 'rate':
+            return {
+                ...state,
+                items: state.items.map(item =>
+                    item.id === action.payload.id
+                        ? { ...item, rating: (item.rating || 0) + 1 }
+                        : item
+                ),
+            };
+        case 'update':
+            return {
+                ...state,
+                items: state.items.map(item =>
+                    item.id === action.payload.id
+                        ? { ...item, ...action.payload.data }
+                        : item
+                ),
+            };
+        case 'delete':
+            return {
+                ...state,
+                items: state.items.filter(item => item.id !== action.payload.id),
+            };
         default:
             return state;
     }
-}
+};
+
+export default AppReducer;

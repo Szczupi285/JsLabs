@@ -1,15 +1,12 @@
-// components/Lab3.js
-
-import '../App.css';
-import { data } from '../lab1/module-data';
+import React from 'react';
 import FlexContainer from './FlexContainer';
-import { Row, Col } from 'react-bootstrap';
+import '../App.css';
 
 function Lab3() {
   return (
     <div className="App">
       <h1>Lab 3</h1>
-          <FlexContainer data={data} />
+      <FlexContainer /> {}
     </div>
   );
 }
